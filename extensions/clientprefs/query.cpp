@@ -279,8 +279,6 @@ bool TQueryOp::BindParamsAndRun()
 				return false;
 			}
 
-			m_insertId = m_database->GetInsertID();
-
 			return true;
 		}
 

@@ -320,20 +320,6 @@ void ClientPrefs::DatabaseConnect()
 		}
 
 		if (!Database->DoSimpleQuery(
-				"CREATE TABLE IF NOT EXISTS sm_cookie_cache \
-				( \
-					player varchar(65) NOT NULL, \
-					cookie_id int NOT NULL, \
-					value varchar(100), \
-					timestamp int NOT NULL, \
-					PRIMARY KEY (player, cookie_id) \
-				)"))
-		{
-			g_pSM->LogMessage(myself, "Failed to CreateTable sm_cookie_cache: %s", Database->GetError());
-			goto fatal_fail;
-		}
-
-		if (!Database->DoSimpleQuery(
 				"CREATE OR REPLACE FUNCTION add_or_update_cookie(in_player VARCHAR(65), in_cookie INT, in_value VARCHAR(100), in_time INT) RETURNS VOID AS \
 					$$ \
 					BEGIN \

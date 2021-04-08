@@ -324,20 +324,19 @@ native int GetClientCookieTime(int client, Handle cookie);
 /**
  * Do not edit below this line!
  */
-public Extension __ext_cprefs = 
+public SharedPlugin __pl_cprefs = 
 {
-	name = "Client Preferences",
-	file = "clientprefs.ext",
-	autoload = 1,
-#if defined REQUIRE_EXTENSIONS
+	name = "Client Preferences Manager",
+	file = "clientprefs-manager.smx",
+#if defined REQUIRE_PLUGIN
 	required = 1,
 #else
 	required = 0,
 #endif
 };
 
-#if !defined REQUIRE_EXTENSIONS
-public void __ext_cprefs_SetNTVOptional()
+#if !defined REQUIRE_PLUGIN
+public void __pl_cprefs_SetNTVOptional()
 {
 	MarkNativeAsOptional("RegClientCookie");
 	MarkNativeAsOptional("FindClientCookie");
