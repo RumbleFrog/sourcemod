@@ -326,7 +326,7 @@ public void OnDatabaseConnect(Database db, const char[] error, any data)
     }
 }
 
-void OnTableCreate(Database db, DBResultSet results, const char[] error, any data)
+public void OnTableCreate(Database db, DBResultSet results, const char[] error, any data)
 {
     if (results == null)
         SetFailState("Unable to create tables/function: %s", error);
@@ -411,7 +411,7 @@ void InsertCookie(ICookie cookie)
     g_DB.Query(OnCookieInserted, query, p);
 }
 
-void OnCookieInserted(Database db, DBResultSet results, const char[] error, DataPack p)
+public void OnCookieInserted(Database db, DBResultSet results, const char[] error, DataPack p)
 {
     char name[COOKIE_MAX_NAME_LENGTH + 1];
     p.ReadString(name, sizeof name);
@@ -479,7 +479,7 @@ void InsertCookieData(int client, int cookie_id, CookieData data)
 }
 
 // Previous clientprefs ext didn't care about insertion errors, not sure if we should start handling it now.
-void OnCookieDataInserted(Database db, DBResultSet results, const char[] error, any data) {}
+public void OnCookieDataInserted(Database db, DBResultSet results, const char[] error, any data) {}
 
 void LoadClientCookies(int client, const char[] auth)
 {
@@ -500,7 +500,7 @@ void LoadClientCookies(int client, const char[] auth)
     g_DB.Query(OnClientCookieLoaded, query, GetClientUserId(client));
 }
 
-void OnClientCookieLoaded(Database db, DBResultSet results, const char[] error, int user_id)
+public void OnClientCookieLoaded(Database db, DBResultSet results, const char[] error, int user_id)
 {
     if (results == null)
         return;

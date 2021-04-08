@@ -6,6 +6,7 @@ files = [
   'antiflood.sp',
   'basecomm.sp',
   'clientprefs.sp',
+  'clientprefs-manager.sp',
   'nextmap.sp',
   'reservedslots.sp',
   'adminmenu.sp',
